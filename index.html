@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    .box {
+        position: relative;
+    }
+
+    .box .times {
+        display: flex;
+        justify-content: space-around;
+
+        position: absolute;
+        top: 228px;
+        left: 54px;
+
+        margin: 0;
+        font-size: 20px;
+    }
+
+    .box .times span:nth-child(2) {
+        margin-left: 7px;
+        margin-right: 13px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="box">
+    <img src="./images/pic.png" alt="">
+    <div id="currentTime" class="times">
+      <span id="monthDay">2022-12-01</span>
+      <span id="hourMinute">16:42:20</span>
+      <b>(</b>
+      <b id="second">51</b>
+      <b>)</b>
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+    setInterval("getDate()",1000);
+    function getDate(){
+      let date = new Date();
+      let y = date.getFullYear();
+      let m =date.getMonth()+1;
+      if (m >= 0 && m <= 9) {
+        m = "0" + m;
+      }
+      let d = date.getDate();
+      if (d >= 0 && d <= 9) {
+        d = "0" + d;
+      }
+
+      let h = date.getHours();
+      if (h >= 0 && h <= 9) {
+        h = "0" + h;
+      }
+      let minute = date.getMinutes();
+      if (minute >= 0 && minute <= 9) {
+        minute = "0" + minute;
+      }
+      let s = date.getSeconds();
+      if (s >= 0 && s <= 9) {
+        s = "0" + s;
+      }
+
+      let day = document.getElementById("monthDay");
+      day.innerHTML = y + '-' + m + '-' + d;
+
+      let time = document.getElementById("hourMinute")
+      time.innerHTML = h+":"+minute+':'+s;
+
+      let second = document.getElementById("second")
+      second.innerHTML = 60 - s;
+    }
+    //使用定时器每秒向div写入当前时间
+    setInterval("getDate()",1000);
+  </script>
+</body>
+</html>

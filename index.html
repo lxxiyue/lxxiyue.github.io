@@ -44,7 +44,7 @@
 
     .box .times span:nth-child(2) {
         margin-left: 7px;
-        margin-right: 13px;
+        margin-right: 7px;
     }
 
   </style>
@@ -53,11 +53,11 @@
   <div class="box">
     <img src="./images/pic.png" alt="">
     <div id="currentTime" class="times">
-      <span id="monthDay">2022—12—01</span>
+      <span id="monthDay">2022-12-01</span>
       <span id="hourMinute">16:42:20</span>
-      <b>(</b>
+      <b>（</b>
       <b id="second">51</b>
-      <b>)</b>
+      <b>）</b>
     </div>
   </div>
 
@@ -90,7 +90,7 @@
       }
 
       let day = document.getElementById("monthDay");
-      day.innerHTML = y + '—' + m + '—' + d;
+      day.innerHTML = y + '-' + m + '-' + d;
 
       let time = document.getElementById("hourMinute")
       time.innerHTML = h+":"+minute+':'+s;
